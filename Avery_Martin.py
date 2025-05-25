@@ -1,0 +1,125 @@
+import streamlit as st 
+from PIL import Image
+from base64 import b64encode
+import io
+
+# Set Background Color of page. 
+# background-color: #97c4f7; /* Replace with your desired color */
+
+def get_base64_image(path):
+    with open(path, "rb") as img_file:
+      return "data:image/jpeg;base64," + b64encode(img_file.read()).decode()
+
+img = get_base64_image("./pages/Avery_Martin.jpeg")
+
+page_bg_color = """
+<style>
+[data-testid="stAppViewContainer"] {
+    background-color: #97c4f7; 
+    background-image: linear-gradient(to right, #f0f0f0, #97c4f7); /* Your gradient */
+    margin: 0 !important; /* Remove default margins */
+    padding: 0 !important; /* Remove default padding */
+    width: 100vw !important; /* Full viewport width */
+
+}
+
+/* Style the image container to center the image */
+.image-container {
+    display: flex;
+    justify-content: center;
+    padding: 5px; /* Add some vertical padding if needed */
+    background-image: linear-gradient(to right, #104f9c, #28b4fd);
+    border-radius: 5px;
+}
+
+.profile-image {
+    max-width: 300px; /* Adjust as needed */
+    height: auto;
+    width: 200px;
+    border-radius: 5px; /* Optional: round image corners */
+    box-shadow: 2px 2px 5px #ccc; /* Optional: add a subtle shadow */
+}
+
+</style>
+"""
+# imaage style="max-width: 100%; height: auto;" width="200"; 
+# style="background-image: linear-gradient(to right, #104f9c, #28b4fd); padding: 10px; border-radius: 5px; display: flex; justify-content: center;" 
+st.markdown(page_bg_color, unsafe_allow_html=True)
+
+# st.title("Avery Martin")
+st.markdown("<h1  style='color: #007bff;'>Avery Martin </h1>", unsafe_allow_html=True)
+
+# Section 1: Profile Photo
+
+try:
+    st.write(f""" 
+    <div class="image-container">
+    <img class="profile-image"; src="{img}" alt = "Avery Martin">
+
+    </div>
+    """,unsafe_allow_html=True)
+   
+except FileNotFoundError:
+    st.error("Error: Profile image not found. Please make sure 'profile.jpg' is in the correct location.")
+except Exception as e:
+    st.error(f"An error occurred: {e}")
+    
+    
+# Section 2: Bio
+bio_html = """
+<div>
+    <h2 style='color: #007bff;'>About Me</h2>
+    <p>This is a paragraph of <strong>important</strong> information about me.
+    I have a passion for <i>building things</i> and learning new technologies.</p>
+    <ul>
+        <li>Experience in Python</li>
+        <li>Knowledge of Streamlit</li>
+        <li>Eager to collaborate</li>
+    </ul>
+</div>
+"""
+st.markdown(bio_html, unsafe_allow_html=True)
+
+# Section 3: Biographic Details
+# st.subheader("Biographic Details")
+st.markdown("<h3 style='color: #017C84;'>Biographic Details</h3>", unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("**Date of Birth:**")
+    st.markdown("February 12, 2008")
+    st.markdown("**Home Country**")
+    st.markdown("Texas")
+    st.markdown("**Nick Name:**")
+    st.markdown("Ave")
+    
+    # ... and so on
+
+with col2:
+    st.markdown("**Hobbies:**")
+    st.markdown("Working on Computer Science items,Coding, Spending time with family,Watching movies,Working on Tech Applications")
+    st.markdown("**School:**")
+    st.markdown("Harmony school of innovation")
+    # ... and so on
+    
+# Section 4: Career Highlights
+# st.subheader("Career Highlights")
+st.markdown("<h3 style='color: #dc3545;'>Career Highlights</h3>", unsafe_allow_html=True)
+
+st.markdown("**Service:**")
+st.markdown("Leadership in Training YMCA")
+bio_html1 = """
+<div>
+    <h2 style='color: #007bff;'>Community service</h2>
+    <p>This is a paragraph of my community service.
+    I have a passion for <i>building things</i> and learning new technologies.</p>
+    <ul>
+        <li>Leaders in Training in a positive social support</li>
+        <li>Volunteered and helped with day care services</li>
+        <li>Volunteered and checked each person entering and exiting the YMCA</li>
+    </ul>
+</div>
+"""
+st.markdown(bio_html1, unsafe_allow_html=True)
+#st.markdown("Leaders in Training in a positive social support. Volunteered and helped with day care services. Volunteered and checked each person entering and exiting the ymca. volunteered and helped assisted in the work out facility. Volunteered and helped with after summer school activities. Volunteered and helped with pick up after summer sessions")
+# ... your career highlights here
