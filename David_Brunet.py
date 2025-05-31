@@ -10,17 +10,17 @@ def get_base64_image(path):
     with open(path, "rb") as img_file:
       return "data:image/jpeg;base64," + b64encode(img_file.read()).decode()
 
-img = get_base64_image("profile.jpg")
+img = get_base64_image("./pages/images/David_Brunet.jpeg")
 
 page_bg_color = """
 <style>
 [data-testid="stAppViewContainer"] {
-    background-color: #97c4f7; 
-    background-image: linear-gradient(to right, #f0f0f0, #97c4f7); /* Your gradient */
+    background-color:  #4a90e2;
+    # background-image: linear-gradient(to right, #f0f0f0, #97c4f7); /* Your gradient */
     margin: 0 !important; /* Remove default margins */
     padding: 0 !important; /* Remove default padding */
     width: 100vw !important; /* Full viewport width */
-
+    color: white;
 }
 
 /* Style the image container to center the image */
@@ -47,7 +47,7 @@ page_bg_color = """
 st.markdown(page_bg_color, unsafe_allow_html=True)
 
 # st.title("David Brunet")
-st.markdown("<h1  style='color: #007bff;'>David Brunet</h1>", unsafe_allow_html=True)
+st.markdown("<h1  style='color: #ffffff;; font-weight: bold;'>David Brunet</h1>", unsafe_allow_html=True)
 
 # Section 1: Profile Photo
 
@@ -68,7 +68,8 @@ except Exception as e:
 # Section 2: Bio
 bio_html = """
 <div>
-    <h2 style='color: #007bff;'>About Me</h2>
+    <h2 style='color: #ccff00; font-weight: bold;'>About Me</h2>
+    <div style='font-size: 23px;'>
     <p>This is a paragraph of <strong>important</strong> information about me.
     I have a passion for <i>building things</i> and learning new technologies.</p>
     <ul>
@@ -76,38 +77,40 @@ bio_html = """
         <li>Knowledge of Streamlit</li>
         <li>Eager to collaborate</li>
     </ul>
+   </div>
 </div>
 """
 st.markdown(bio_html, unsafe_allow_html=True)
 
 # Section 3: Biographic Details
 # st.subheader("Biographic Details")
-st.markdown("<h3 style='color: #ffc107;'>Biographic Details</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='color: 	#00ffff; font-weight: bold;'>Biographic Details</h2>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown("**Date of Birth:**")
-    st.markdown("July 23, 1973")
-    st.markdown("**Home Country**")
-    st.markdown("Canada")
-    st.markdown("**Nick Name:**")
-    st.markdown("SuperDave, Blue, Sprocket")
-    
-    # ... and so on
+    st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Date of Birth:</strong><br>July 23, 1973</p>
+        <p><strong>Home Country:</strong><br>Canada</p>
+        <p><strong>Nick Name:</strong><br>SuperDave, Blue, Sprocket</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col2:
-    st.markdown("**Hobbies:**")
-    st.markdown("Robotics, Technology, Volunteering")
-    st.markdown("**Work:**")
-    st.markdown("DLZP Group - VP R&D, Innovation Spark - Volunteer")
-    # ... and so on
+    st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Hobbies:</strong><br>Robotics, Technology, Volunteering</p>
+        <p><strong>Work:</strong><br>DLZP Group - VP R&D, Innovation Spark - Volunteer</p>
+    </div>
+    """, unsafe_allow_html=True)
     
 # Section 4: Career Highlights
 # st.subheader("Career Highlights")
-st.markdown("<h3 style='color: #dc3545;'>Career Highlights</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='color: 	#bf40bf; font-weight: bold;'>Career Highlights</h2>", unsafe_allow_html=True)
 
-st.markdown("**Awards:**")
-st.markdown("Top 10% Consultants at Oracle")
-st.markdown("**Achievement:**")
-st.markdown("Started HACR Combat Robotics, Innovation Spark, Houston Maker Faire")
-# ... your career highlights here
+st.markdown("""
+<div style='font-size: 23px;'>
+    <p><strong>Awards:</strong><br>Top 10% Consultants at Oracle</p>
+    <p><strong>Achievement:</strong><br>Started HACR Combat Robotics, Innovation Spark, Houston Maker Faire</p>
+</div>
+""", unsafe_allow_html=True)

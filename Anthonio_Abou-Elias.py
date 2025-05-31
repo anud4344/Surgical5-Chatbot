@@ -16,12 +16,14 @@ img = get_base64_image("./pages/Anthonio_Elias.jpg")
 page_bg_color = """
 <style>
 [data-testid="stAppViewContainer"] {
-    background-color: #97c4f7; 
-    background-image: linear-gradient(to right, #f0f0f0, #97c4f7); /* Your gradient */
+    # background-color: #97c4f7; 
+    # background-image: linear-gradient(to right, #87ceeb, #97c4f7); /* Your gradient */
     margin: 0 !important; /* Remove default margins */
     padding: 0 !important; /* Remove default padding */
     width: 100vw !important; /* Full viewport width */
-
+    color: black;
+    # background-image: linear-gradient(to right, #ffcc80, #ffe0b2);
+    background-color: #ffa726;
 }
 
 /* Style the image container to center the image */
@@ -48,7 +50,7 @@ page_bg_color = """
 st.markdown(page_bg_color, unsafe_allow_html=True)
 
 # st.title("Anthonio Abou-Elias")
-st.markdown("<h1  style='color: #007bff;'>Anthonio Abou-Elias</h1>", unsafe_allow_html=True)
+st.markdown("<h1  style='color: black;'>Anthonio Abou-Elias</h1>", unsafe_allow_html=True)
 
 # Section 1: Profile Photo
 
@@ -69,7 +71,8 @@ except Exception as e:
 # Section 2: Bio
 bio_html = """
 <div>
-    <h2 style='color: #007bff;'>About Me</h2>
+    <h2 style='color: #2e7d32; font-weight: bold;'>About Me</h2>
+     <div style='font-size: 23px;'>
     <p>This is a paragraph of <strong>important</strong> information about me.
     I have a passion for <i>Theatre</i>, Walt Disney and Acting.</p>
     <ul>
@@ -77,38 +80,40 @@ bio_html = """
         <li>Knowledge of Alladin</li>
         <li>Eager to Perform in front of an audience</li>
     </ul>
+   </div>
 </div>
 """
 st.markdown(bio_html, unsafe_allow_html=True)
 
 # Section 3: Biographic Details
 # st.subheader("Biographic Details")
-st.markdown("<h3 style='color: #ffc107;'>Biographic Details</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='color: #1565c0; font-weight: bold;'>Biographic Details</h2>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown("**Date of Birth:**")
-    st.markdown("July 8, 2003")
-    st.markdown("**Home Country**")
-    st.markdown("Romania")
-    st.markdown("**Nick Name:**")
-    st.markdown("Aladdin")
-    
-    # ... and so on
+    st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Date of Birth:</strong><br>July 8, 2003</p>
+        <p><strong>Home Country:</strong><br>Romania</p>
+        <p><strong>Nick Name:</strong><br>Aladdin</p>
+    </div>
+    """, unsafe_allow_html=True)
+
 
 with col2:
-    st.markdown("**Hobbies:**")
-    st.markdown("Acting, Theatre, Disney, Traveling")
-    st.markdown("**School**")
-    st.markdown("Langham Creek High")
-    # ... and so on
-    
+   st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Hobbies:</strong><br>Acting, Theatre, Disney, Traveling</p>
+        <p><strong>School:</strong><br>Langham Creek High</p>
+    </div>
+    """, unsafe_allow_html=True)
 # Section 4: Career Highlights
 # st.subheader("Career Highlights")
-st.markdown("<h3 style='color: #dc3545;'>Education Highlights</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='color: #512da8; font-weight: bold;'>Community Service & Achievements</h2>", unsafe_allow_html=True)
 
-st.markdown("**Awards:**")
-st.markdown("Helping Others in my Boy Scout Group")
-st.markdown("**Achievement:**")
-st.markdown("Boy Scout")
-# ... your career highlights here
+st.markdown("""
+<div style='font-size: 23px;'>
+    <p><strong>Awards:</strong><br>Helping Others in my Boy Scout Group</p>
+    <p><strong>Achievement:</strong><br>Boy Scout</p>
+</div>
+""", unsafe_allow_html=True)

@@ -20,7 +20,7 @@ page_bg_color = """
     margin: 0 !important; /* Remove default margins */
     padding: 0 !important; /* Remove default padding */
     width: 100vw !important; /* Full viewport width */
-
+    color: black;
 }
 
 /* Style the image container to center the image */
@@ -47,7 +47,7 @@ page_bg_color = """
 st.markdown(page_bg_color, unsafe_allow_html=True)
 
 # st.title("David Brunet")
-st.markdown("<h1  style='color: #023020;'>Erick Carreno</h1>", unsafe_allow_html=True)
+st.markdown("<h1  style='color: #003300; font-weight: bold;'>Erick Carreno</h1>", unsafe_allow_html=True)
 
 # Section 1: Profile Photo
 
@@ -68,7 +68,8 @@ except Exception as e:
 # Section 2: Bio
 bio_html = """
 <div>
-    <h2 style='color: #007bff;'>About Me</h2>
+    <h2 style='color: #004d40; font-weight: bold;'>About Me</h2>
+    <div style='font-size: 23px;'>
     <p>I am a 15 year old student who likes to code every now and then.  Here's some information about me.
     I have a passion for <i>building things</i> and learning new technologies through the year.</p>
     <ul>
@@ -78,38 +79,58 @@ bio_html = """
         <li>I am short tempered, so dont worry about me getting mad!</li>
         <li>Finally, I am always ready to get the job done.</li>
     </ul>
+   </div>
 </div>
 """
 st.markdown(bio_html, unsafe_allow_html=True)
 
 # Section 3: Biographic Details
 # st.subheader("Biographic Details")
-st.markdown("<h3 style='color: #ffc107;'>Biographic Details</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='color: #0d47a1; font-weight: bold;'>Biographic Details</h3>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown("**Date of Birth:**")
-    st.markdown("May 11th, 2009")
-    st.markdown("**Home Country**")
-    st.markdown("The United States of America")
-    st.markdown("**Nick Name:**")
-    st.markdown("Erikku")
+      st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Date of Birth:</strong><br>May 11th, 2009</p>
+        <p><strong>Home Country:</strong><br>The United States of America</p>
+        <p><strong>Nick Name:</strong><br>Erikku</p>
+    </div>
+    """, unsafe_allow_html=True)
+    # st.markdown("**Date of Birth:**")
+    # st.markdown("May 11th, 2009")
+    # st.markdown("**Home Country**")
+    # st.markdown("The United States of America")
+    # st.markdown("**Nick Name:**")
+    # st.markdown("Erikku")
     
     # ... and so on
 
 with col2:
-    st.markdown("**Hobbies:**")
-    st.markdown("Chess, Retro Stuff, Soccer, etc")
-    st.markdown("**Education:**")
-    st.markdown("Waltrip High School- National Honor Society Sophomore")
-    # ... and so on
+    st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Hobbies:</strong><br>Chess, Retro Stuff, Soccer, etc</p>
+        <p><strong>Education:</strong><br>Waltrip High School - National Honor Society Sophomore</p>
+    </div>
+    """, unsafe_allow_html=True)
+    # st.markdown("**Hobbies:**")
+    # st.markdown("Chess, Retro Stuff, Soccer, etc")
+    # st.markdown("**Education:**")
+    # st.markdown("Waltrip High School- National Honor Society Sophomore")
+    # # ... and so on
     
 # Section 4: Career Highlights
 # st.subheader("Education Highlights")
-st.markdown("<h3 style='color: #dc3545;'>Education Highlights</h3>", unsafe_allow_html=True)
-
-st.markdown("**Awards:**")
-st.markdown("College Board First Gen Recognition")
-st.markdown("**Achievement:**")
-st.markdown("First Special Education NHS Member at my High School, Projected as Top 10%")
-# ... your career highlights here
+st.markdown("<h3 style='color: #8e24aa; font-weight: bold;'>Education Highlights</h3>", unsafe_allow_html=True)
+ 
+st.markdown("""
+<div style='font-size: 23px;'>
+    <p><strong>Awards:</strong><br>College Board First Gen Recognition</p>
+    <p><strong>Achievement:</strong><br>First Special Education NHS Member at my High School, Projected as Top 10%</p>
+</div>
+""", unsafe_allow_html=True)
+# st.markdown("**Awards:**")
+# st.markdown("College Board First Gen Recognition")
+# st.markdown("**Achievement:**")
+# st.markdown("First Special Education NHS Member at my High School, Projected as Top 10%")
+# # ... your career highlights here

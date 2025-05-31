@@ -56,8 +56,7 @@ page_bg_color = """
 """
 
 st.markdown(page_bg_color, unsafe_allow_html=True)
-
-
+           
 
 def get_base64_image(image_path):
     with open(image_path, "rb") as img_file:
@@ -75,7 +74,6 @@ def main():
 
     page_icon("🩺")
 
-    
     
     st.markdown(
        f"""
@@ -138,6 +136,22 @@ def main():
                     st.session_state.messages.append({"role": "assistant", "content": answer})
         except Exception as e:
             st.error(f"Error from model: {str(e)}", icon="⛔️")
+            
+    st.sidebar.title("Navigation")
+    if st.sidebar.button("Show README"):
+        st.session_state.show_readme = not st.session_state.get("show_readme", False)
+
+    if st.session_state.get("show_readme"):
+        st.markdown("---") # Separator for better visual
+        st.header("About This App")
+        try:
+            # Assuming README.md is in the same directory as your app.py
+            with open("README.md", "r", encoding="utf-8") as f:
+                readme_content = f.read()
+            st.markdown(readme_content, unsafe_allow_html=True)
+        except FileNotFoundError:
+            st.warning("README.md not found in the current directory.")
+        st.markdown("---") # Separator
     
 
 if __name__ == "__main__":

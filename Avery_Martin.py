@@ -15,12 +15,12 @@ img = get_base64_image("./pages/Avery_Martin.jpeg")
 page_bg_color = """
 <style>
 [data-testid="stAppViewContainer"] {
-    background-color: #97c4f7; 
-    background-image: linear-gradient(to right, #f0f0f0, #97c4f7); /* Your gradient */
-    margin: 0 !important; /* Remove default margins */
-    padding: 0 !important; /* Remove default padding */
-    width: 100vw !important; /* Full viewport width */
-
+    background-color: #a5d6a7;
+    # background-image: linear-gradient(to right, #e3f2fd, #fdfdfd); /* Light blue to white */
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    color: black;
 }
 
 /* Style the image container to center the image */
@@ -47,7 +47,7 @@ page_bg_color = """
 st.markdown(page_bg_color, unsafe_allow_html=True)
 
 # st.title("Avery Martin")
-st.markdown("<h1  style='color: #007bff;'>Avery Martin </h1>", unsafe_allow_html=True)
+st.markdown("<h1  style='color: #004d40;'>Avery Martin </h1>", unsafe_allow_html=True)
 
 # Section 1: Profile Photo
 
@@ -68,7 +68,8 @@ except Exception as e:
 # Section 2: Bio
 bio_html = """
 <div>
-    <h2 style='color: #007bff;'>About Me</h2>
+    <h2 style='color: black;'>About Me</h2>
+    <div style='font-size: 23px;'>
     <p>This is a paragraph of <strong>important</strong> information about me.
     I have a passion for <i>building things</i> and learning new technologies.</p>
     <ul>
@@ -76,41 +77,54 @@ bio_html = """
         <li>Knowledge of Streamlit</li>
         <li>Eager to collaborate</li>
     </ul>
+    </div>
 </div>
 """
 st.markdown(bio_html, unsafe_allow_html=True)
 
 # Section 3: Biographic Details
 # st.subheader("Biographic Details")
-st.markdown("<h3 style='color: #017C84;'>Biographic Details</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='color: 	#1b3b0f;'>Biographic Details</h2>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
+
 with col1:
-    st.markdown("**Date of Birth:**")
-    st.markdown("February 12, 2008")
-    st.markdown("**Home Country**")
-    st.markdown("Texas")
-    st.markdown("**Nick Name:**")
-    st.markdown("Ave")
+      st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Date of Birth:</strong><br>February 12, 2008</p>
+        <p><strong>Home Country:</strong><br>Texas</p>
+        <p><strong>Nick Name:</strong><br>Ave</p>
+    </div>
+    """, unsafe_allow_html=True)
+    # st.markdown("**Date of Birth:**")
+    # st.markdown("February 12, 2008")
+    # st.markdown("**Home Country**")
+    # st.markdown("Texas")
+    # st.markdown("**Nick Name:**")
+    # st.markdown("Ave")
     
     # ... and so on
 
 with col2:
-    st.markdown("**Hobbies:**")
-    st.markdown("Working on Computer Science items,Coding, Spending time with family,Watching movies,Working on Tech Applications")
-    st.markdown("**School:**")
-    st.markdown("Harmony school of innovation")
-    # ... and so on
-    
-# Section 4: Career Highlights
-# st.subheader("Career Highlights")
-st.markdown("<h3 style='color: #dc3545;'>Career Highlights</h3>", unsafe_allow_html=True)
-
-st.markdown("**Service:**")
-st.markdown("Leadership in Training YMCA")
+    st.markdown("""
+    <div style='font-size: 23px;'>
+        <p><strong>Hobbies:</strong><br>Working on Computer Science items, Coding, Spending time with family, Watching movies, Working on Tech Applications</p>
+        <p><strong>School:</strong><br>Harmony school of innovation</p>
+    </div>
+    """, unsafe_allow_html=True)
+   
+st.markdown("<h2 style='color: #3e2723'>Leadership & Service</h2>", unsafe_allow_html=True)
+st.markdown("""
+<div style='font-size: 23px;'>
+    <p><strong>Service:</strong><br>Leadership in Training YMCA</p>
+</div>
+""", unsafe_allow_html=True)
+# st.markdown("**Service:**")
+# st.markdown("Leadership in Training YMCA")
 bio_html1 = """
 <div>
-    <h2 style='color: #007bff;'>Community service</h2>
+     <div style='font-size: 23px;'>
+    <h2 style='color: #283593'>Community service</h2>
     <p>This is a paragraph of my community service.
     I have a passion for <i>building things</i> and learning new technologies.</p>
     <ul>
@@ -118,6 +132,7 @@ bio_html1 = """
         <li>Volunteered and helped with day care services</li>
         <li>Volunteered and checked each person entering and exiting the YMCA</li>
     </ul>
+    </div>
 </div>
 """
 st.markdown(bio_html1, unsafe_allow_html=True)
