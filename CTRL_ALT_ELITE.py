@@ -20,7 +20,7 @@ page_bg_color = """
     div[data-testid="stChatMessageList"] {
     background-color: black;
     border-radius: 10px;
-    padding: 10px;
+    paddi/ng: 10px;
     max-height: 500px;
     overflow-y: auto;
     margin-top: 16px;
@@ -28,15 +28,21 @@ page_bg_color = """
 
    
    div[data-testid="stChatInput"] {
-      margin-left: -1rem  !important;
-      margin-right: -1rem !important;
+    #   margin-left: -1rem  !important;
+    #   margin-right: -1rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
     }
 
 
     div[data-testid="stChatInput"] textarea {
-      # background-color: #000000;
+
       background-color: #d40003;
-      color: #FFFFFF !important;
+    #   background-color: white; 
+      color: white !important;
       border-radius: 8px !important;
       padding: 8px 12px !important;
       width: 100% !important;
@@ -45,13 +51,16 @@ page_bg_color = """
       height: auto;
       resize: none !important;
       font-size: 16px !important;
+      
     }
 
     div[data-testid="stChatInput"] textarea::placeholder {
-      color: black !important;
+      color: black !important;  
     }
 
-
+    .chatbot-response {
+    font-size: 23px !important;
+}
 </style>
 """
 
@@ -132,7 +141,15 @@ def main():
                         ]
                     )
                     answer = response["message"]["content"]
-                    st.markdown(answer)
+                    # st.markdown(answer)
+                    st.markdown(
+    f"""
+    <div class="chatbot-response">
+        <p style="white-space: pre-wrap;">{answer}</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
                     st.session_state.messages.append({"role": "assistant", "content": answer})
         except Exception as e:
             st.error(f"Error from model: {str(e)}", icon="⛔️")
